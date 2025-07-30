@@ -14,3 +14,4 @@ Mockk used for unit tests.
 <img width="327" height="689" alt="photogridwithquery" src="https://github.com/user-attachments/assets/b96d3240-5938-4df2-86ba-a0973b9f55a4" />
 <img width="323" height="685" alt="bigimagewithtext" src="https://github.com/user-attachments/assets/4cd5505d-beea-4441-b319-666113889977" />
 <img width="324" height="688" alt="error_snackbar" src="https://github.com/user-attachments/assets/b532aa56-fdcd-4bd5-bc1e-f5cb2594649e" />
+<img width="343" height="677" alt="loading" src="https://github.com/user-attachments/assets/04e067b5-24a6-44c1-95bd-70372796ec4d" />
