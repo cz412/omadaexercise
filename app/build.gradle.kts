@@ -20,6 +20,11 @@ android {
     namespace = "com.example.omadaexercise"
     compileSdk = 36
 
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1,LICENSE*}"
+        }
+    }
     defaultConfig {
         applicationId = "com.example.omadaexercise"
         minSdk = 24
@@ -80,4 +85,8 @@ dependencies {
     implementation(libs.okhttp)
     //glide
     implementation(libs.glide)
+    //tests
+    implementation(libs.mock)
+    implementation(libs.android.core.testing)
+    implementation(libs.coroutines.test)
 }

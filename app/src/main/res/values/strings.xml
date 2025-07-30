@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">omadaexercise</string>
+    <string name="close">Close</string>
+    <string name="full_image">Full Image</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="search_photos">Search Photos</string>
+    <string name="search">Search</string>
 </resources>

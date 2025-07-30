@@ -46,6 +46,7 @@ fun PhotoLandingScreen(photoViewModel: PhotoViewModel) {
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             PhotoTopAppBar(
+                isLoading = photoUrlsState.isLoading,
                 searchQuery = searchQuery.value,
                 onSearchQueryChange = { searchQuery.value = it },
                 onSearchClick = {

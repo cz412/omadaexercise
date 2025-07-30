@@ -14,8 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.omadaexercise.R
 
 @Composable
 fun PhotoPagination(
@@ -41,7 +43,7 @@ fun PhotoPagination(
             enabled = currentPage > 0,
             colors = paginationButtonColors
         ) {
-            Text("Back")
+            Text(stringResource(R.string.back))
         }
         Text("Page ${currentPage + 1} of $totalPages")
         Button(
@@ -49,7 +51,7 @@ fun PhotoPagination(
             enabled = currentPage < totalPages - 1,
             colors = paginationButtonColors
         ) {
-            Text("Next")
+            Text(stringResource(R.string.next))
         }
     }
 }

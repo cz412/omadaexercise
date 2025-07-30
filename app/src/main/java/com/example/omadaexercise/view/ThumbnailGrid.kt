@@ -31,7 +31,7 @@ fun ThumbnailGrid(
             ) {
                 GlideImageLoader(
                     url = url,
-                    contentDescription = "Flickr Image",
+                    contentDescription = null,
                     modifier = Modifier.fillMaxSize()
                 )
             }

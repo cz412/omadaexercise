@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.example.omadaexercise.R
@@ -39,13 +40,13 @@ fun PhotoDialog(
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_close),
-                        contentDescription = "Close",
+                        contentDescription = stringResource(R.string.close),
                         tint = Color.Unspecified
                     )
                 }
                 GlideImageLoader(
                     url = imageUrl,
-                    contentDescription = "Full Image",
+                    contentDescription = stringResource(R.string.full_image),
                     bigImage = true,
                     modifier = Modifier.fillMaxWidth()
                 )
