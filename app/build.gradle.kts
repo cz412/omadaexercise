@@ -78,4 +78,6 @@ dependencies {
     implementation(libs.retrofit2)
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
+    //glide
+    implementation(libs.glide)
 }
