@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 fun PhotoTopAppBar(
     modifier: Modifier = Modifier,
     searchQuery: String,
+    isLoading: Boolean,
     onSearchQueryChange: (String) -> Unit,
     onSearchClick: () -> Unit,
 ) {
@@ -36,6 +37,7 @@ fun PhotoTopAppBar(
                 )
                 PhotoSearchButton(
                     onClick = onSearchClick,
+                    enabled = !isLoading,
                     modifier = Modifier
                         .align(alignment = Alignment.CenterVertically)
                 )
@@ -52,7 +54,8 @@ fun PhotoTopAppBarPreview() {
         PhotoTopAppBar(
             searchQuery = "Forest",
             onSearchQueryChange = {},
-            onSearchClick = {}
+            onSearchClick = {},
+            isLoading = false
         )
     }
 }

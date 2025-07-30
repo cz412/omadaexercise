@@ -7,29 +7,30 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.omadaexercise.R
 
 
 @Composable
 fun PhotoSearchButton(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     val photoButtonColors: ButtonColors = ButtonDefaults.buttonColors(
         containerColor = Color.Black,
         contentColor = Color.White
     )
-
     Button(
         onClick = onClick,
         modifier = modifier,
-        colors = photoButtonColors
+        colors = photoButtonColors,
+        enabled = enabled
     ) {
-        Text("Search")
+        Text(stringResource(R.string.search))
     }
 }
-
-
 
 @Preview
 @Composable
