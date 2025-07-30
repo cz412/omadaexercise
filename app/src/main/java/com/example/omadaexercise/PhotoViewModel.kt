@@ -1,22 +1,22 @@
 package com.example.omadaexercise
 
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.omadaexercise.repo.PhotoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 @HiltViewModel
 class PhotoViewModel @Inject constructor(
     private val repository: PhotoRepository
 ) : ViewModel() {
 
-    private val _photoUrls = mutableStateOf(PhotoUrlsDataState())
-    val photoUrls: State<PhotoUrlsDataState> = _photoUrls
+    private val _photoUrls = MutableStateFlow(PhotoUrlsDataState())
+    val photoUrls: StateFlow<PhotoUrlsDataState> = _photoUrls
 
     fun loadPhotos(query: String) {
         viewModelScope.launch {
@@ -27,7 +27,7 @@ class PhotoViewModel @Inject constructor(
                     PhotosInfo(
                         id = photo.id,
                         title = photo.title,
-                        url = "https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_q.jpg"
+                        url = "https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_s.jpg"
                     )
                 }
                 _photoUrls.value = PhotoUrlsDataState(success = urls)
