@@ -3,10 +3,9 @@ package com.example.omadaexercise.view
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -31,23 +30,26 @@ fun PhotoPagination(
         disabledContentColor = Color(0xFFFF9800),
         disabledContainerColor = Color.DarkGray
     )
-    LazyRow(
-        modifier = Modifier
+    Row(
+        modifier = modifier
             .fillMaxWidth()
-            .padding(top = 8.dp),
-        horizontalArrangement = Arrangement.Center,
-        contentPadding = PaddingValues(horizontal = 16.dp)
+            .padding(8.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        items(totalPages) { page ->
-            val isSelected = page == currentPage
-            Button(
-                onClick = { if (!isSelected) onPageSelected(page) },
-                enabled = !isSelected,
-                colors = paginationButtonColors,
-                modifier = Modifier.padding(horizontal = 2.dp)
-            ) {
-                Text("${page + 1}")
-            }
+        Button(
+            onClick = { onPageSelected(currentPage - 1) },
+            enabled = currentPage > 0,
+            colors = paginationButtonColors
+        ) {
+            Text("Back")
+        }
+        Text("Page ${currentPage + 1} of $totalPages")
+        Button(
+            onClick = { onPageSelected(currentPage + 1) },
+            enabled = currentPage < totalPages - 1,
+            colors = paginationButtonColors
+        ) {
+            Text("Next")
         }
     }
 }

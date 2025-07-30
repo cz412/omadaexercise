@@ -19,7 +19,6 @@ import com.example.omadaexercise.R
 @Composable
 fun PhotoDialog(
     imageUrl: String,
-    title: String,
     onDismiss: () -> Unit
 ) {
     Dialog(onDismissRequest = onDismiss) {
@@ -47,6 +46,7 @@ fun PhotoDialog(
                 GlideImageLoader(
                     url = imageUrl,
                     contentDescription = "Full Image",
+                    bigImage = true,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
