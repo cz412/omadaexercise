@@ -22,7 +22,6 @@ fun PhotoSearchButton(
         containerColor = Color.Black,
         contentColor = Color.White
     )
-
     Button(
         onClick = onClick,
         modifier = modifier,
@@ -32,8 +31,6 @@ fun PhotoSearchButton(
         Text(stringResource(R.string.search))
     }
 }
-
-
 
 @Preview
 @Composable

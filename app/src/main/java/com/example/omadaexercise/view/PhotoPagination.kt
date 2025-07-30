@@ -56,7 +56,6 @@ fun PhotoPagination(
     }
 }
 
-
 @Preview
 @Composable
 fun PhotoPaginationPreview() {

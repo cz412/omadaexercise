@@ -63,8 +63,6 @@ fun PhotoLandingScreen(photoViewModel: PhotoViewModel) {
                     currentPage = currentPage.intValue,
                     totalPages = totalPages,
                     onPageSelected = { page -> currentPage.intValue = page },
-                    modifier = Modifier
-                        .padding(bottom = 16.dp)
                 )
             }
         }
