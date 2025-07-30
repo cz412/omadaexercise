@@ -7,6 +7,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,6 +21,7 @@ import com.example.omadaexercise.R
 @Composable
 fun PhotoDialog(
     imageUrl: String,
+    title: String,
     onDismiss: () -> Unit
 ) {
     Dialog(onDismissRequest = onDismiss) {
@@ -44,9 +46,10 @@ fun PhotoDialog(
                         tint = Color.Unspecified
                     )
                 }
+                Text(text = title, style = MaterialTheme.typography.titleLarge)
                 GlideImageLoader(
                     url = imageUrl,
-                    contentDescription = stringResource(R.string.full_image),
+                    contentDescription = title + stringResource(R.string.full_image),
                     bigImage = true,
                     modifier = Modifier.fillMaxWidth()
                 )

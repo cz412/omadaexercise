@@ -17,12 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import com.example.omadaexercise.PhotoViewModel
+import com.example.omadaexercise.PhotosInfo
 import com.example.omadaexercise.toLargeImage
 
 @Composable
 fun PhotoLandingScreen(photoViewModel: PhotoViewModel) {
     val searchQuery = remember { mutableStateOf("") }
-    val selectedImageUrl = remember { mutableStateOf<String?>(null) }
+    val selectedPhoto = remember { mutableStateOf<PhotosInfo?>(null) }
     val photoUrlsState = photoViewModel.photoUrls.collectAsState().value
     //error snackbar state
     val snackbarHostState = remember { SnackbarHostState() }
@@ -33,8 +34,8 @@ fun PhotoLandingScreen(photoViewModel: PhotoViewModel) {
     val totalPages = (images.size + gridSize - 1) / gridSize
     val startIndex = currentPage.intValue * gridSize
     val endIndex = minOf(startIndex + gridSize, images.size)
-    val pageImages = if (images.isNotEmpty()) {
-        images.subList(startIndex, endIndex).map { it.url }
+    val pageImages: List<PhotosInfo> = if (images.isNotEmpty()) {
+        images.subList(startIndex, endIndex)
     } else {
         emptyList()
     }
@@ -90,17 +91,18 @@ fun PhotoLandingScreen(photoViewModel: PhotoViewModel) {
                     images.isNotEmpty() -> {
                         PhotoScreen(
                             images = pageImages,
-                            onImageClick = { photoInfo -> selectedImageUrl.value = photoInfo },
+                            onImageClick = { photo -> selectedPhoto.value = photo },
                             columns = 3
                         )
                     }
                 }
             }
         }
-        if (selectedImageUrl.value != null) {
+        selectedPhoto.value?.let { photo ->
             PhotoDialog(
-                imageUrl = selectedImageUrl.value.toLargeImage(),
-                onDismiss = { selectedImageUrl.value = null }
+                imageUrl = photo.url.toLargeImage(),
+                title = photo.title,
+                onDismiss = { selectedPhoto.value = null }
             )
         }
     }
